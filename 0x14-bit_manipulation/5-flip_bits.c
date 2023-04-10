@@ -6,17 +6,17 @@
  * @n: first number
  * @m: second number
  *
- * Returns: number of bits to change
+ * Return: number of bits to change
  */
-unsigned int flip_bits(unsigned long int a, unsigned long int b)
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	int x, count = 0;
-	unsigned long int new;
-	unsigned long int exclusive = a ^ b;
+	int i, count = 0;
+	unsigned long int current;
+	unsigned long int exclusive = n ^ m;
 
-	for (x = 63; x >= 0; x--)
+	for (i = 63; i >= 0; i--)
 	{
-		new = exclusive >> x;
+		current = exclusive >> i;
 		if (current & 1)
 			count++;
 	}
