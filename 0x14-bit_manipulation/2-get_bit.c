@@ -6,15 +6,22 @@
  * @n: unsigned long int input.
  * @index: index of the bit.
  *
- * Returns: returns the value of the bit.
+ * Return: value of the bit.
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	int val_of_bit;
+	unsigned int v;
 
-	if (index > 63)
-		return (-1);
-	val_of_bit = (n >> index) & 1;
+	if (n == 0 && index < 64)
+		return (0);
 
-	return (val_of_bit);
+	for (v = 0; v <= 63; n >>= 1, v++)
+	{
+		if (index == v)
+		{
+			return (n & 1);
+		}
+	}
+
+	return (-1);
 }
